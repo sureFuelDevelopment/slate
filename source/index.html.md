@@ -12,15 +12,11 @@ includes:
 search: true
 ---
 
-# Introduction
+# Welcome to SureFuel!
 
 Welcome to the SureFuel Javascript API!
 
-SureFuel features a small and dynamic development team, aimed at quick, iterative deployments. As a SureFuel developer and to make the best use of these documents, you will need to be familiar with:
-
--   NodeJS
--   Firebase API
--   Firebase Cloud Functions
+SureFuel features a small and dynamic development team, aimed at quick, iterative deployments.
 
 ##Request
 
