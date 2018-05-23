@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;Javascript&quot;]">
+  <body class="index" data-languages="[&quot;Shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="Javascript">Javascript</a>
+              <a href="#" data-language-name="Shell">Shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -296,12 +296,7 @@
 
 <p>SureFuel features a small and dynamic development team, aimed at quick, iterative deployments.</p>
 <h2 id='request'>Request</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code>
-</code></pre>
-<p>Server accepts requests with the next required parameters:</p>
+<p>All server requests require an Authorization Bearer Token.</p>
 
 <table><thead>
 <tr>
@@ -310,7 +305,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Authorization</td>
+<td>Authorization Bearer Token</td>
 <td>firebase_user_token</td>
 </tr>
 </tbody></table>
@@ -318,20 +313,95 @@
 <p>The SureFuel scheduling API is responsible for setting up automated routing calls. In general, we require information on the asset we are looking to fill, alongside the scheduled interval.</p>
 <h2 id='new-schedule-item'>New Schedule Item</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Example Request:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url http://localhost:3000/scheduler/newitem <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+"asset_id": "7R4977M2Vb3mK73HFwXr",
+"owner_uid": "7R4977M2Vb3mK73HFwXr",
+"asset_name": "example_item",
+"asset location": {
+"lat": -34.397,
+"lng": 150.644
+},
+"asset_capacity": "500",
+"fill_frequency": "weekly",
+"starting_date": 1527032210
+}'</span>
 </code></pre>
-<p>Create a scheduled item.</p>
+<p>Add a scheduled item to the database.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asset_uid</td>
+<td>Asset Unique UID</td>
+</tr>
+<tr>
+<td>owner_uid</td>
+<td>UID of the owner</td>
+</tr>
+<tr>
+<td>asset_location</td>
+<td>Location of the Asset</td>
+</tr>
+<tr>
+<td>asset_capacity</td>
+<td>Capacity of the Asset in Liters</td>
+</tr>
+<tr>
+<td>fill_frequency</td>
+<td>Type Of: <code>weekly</code>, <code>daily</code>, <code>monthly</code></td>
+</tr>
+<tr>
+<td>starting_date</td>
+<td>Start date of Recurrence in Unix Timestamp</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
-<code>meowmeowmeow</code>
+<code>All Parameters are required for successful call </code>
 </aside>
 <h2 id='get-scheduled-items'>Get Scheduled Items</h2>
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url http://localhost:3000/scheduler/getitems <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
 <p>Get a list of the currently scheduled items from the DB.</p>
 <h2 id='delete-scheduled-item'>Delete Scheduled Item</h2>
-<p>Delete a scheduled item from the DB based on <code>uid</code>.</p>
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'http://localhost:3000/scheduler/deleteitem?asset_uid=7R4977M2Vb3mK73HFwXr'</span> <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<p>Delete a scheduled item from the DB based on &quot;asset_uid&quot;</p>
+
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asset_uid</td>
+<td>Asset Unique UID</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+<code>All Parameters are required for successful call </code>
+</aside>
 <h1 id='routing-api'>Routing API</h1><h2 id='add-location-to-routing-queue'>Add location to Routing Queue</h2>
 <p>Add a location to the current <code>Daily</code> Routing Queue.</p>
 <h2 id='get-routing-queue'>Get Routing Queue</h2>
@@ -382,7 +452,7 @@ SureFuel error codes.
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="Javascript">Javascript</a>
+                <a href="#" data-language-name="Shell">Shell</a>
           </div>
       </div>
     </div>
