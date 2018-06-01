@@ -244,19 +244,13 @@
             <a href="#routing-api" class="toc-h1 toc-link" data-title="routing-api">Routing API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#add-location-to-routing-queue" class="toc-h2 toc-link" data-title="add-location-to-routing-queue">Add location to Routing Queue</a>
+                    <a href="#accept-the-next-available-job" class="toc-h2 toc-link" data-title="accept-the-next-available-job">Accept the Next Available Job</a>
                   </li>
                   <li>
                     <a href="#get-routing-queue" class="toc-h2 toc-link" data-title="get-routing-queue">Get Routing Queue</a>
                   </li>
                   <li>
                     <a href="#optimize-routes" class="toc-h2 toc-link" data-title="optimize-routes">Optimize Routes</a>
-                  </li>
-                  <li>
-                    <a href="#deploy-optimized-routes" class="toc-h2 toc-link" data-title="deploy-optimized-routes">Deploy Optimized Routes</a>
-                  </li>
-                  <li>
-                    <a href="#deploy-optimized-route-to-driver" class="toc-h2 toc-link" data-title="deploy-optimized-route-to-driver">Deploy Optimized Route to Driver</a>
                   </li>
               </ul>
           </li>
@@ -402,16 +396,36 @@
 <aside class="notice">
 <code>All Parameters are required for successful call </code>
 </aside>
-<h1 id='routing-api'>Routing API</h1><h2 id='add-location-to-routing-queue'>Add location to Routing Queue</h2>
-<p>Add a location to the current <code>Daily</code> Routing Queue.</p>
+<h1 id='routing-api'>Routing API</h1><h2 id='accept-the-next-available-job'>Accept the Next Available Job</h2>
+<p>Accept the next available Job as a driver:</p>
+
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>driver_uid</td>
+<td>Driver Unique UID</td>
+</tr>
+</tbody></table>
 <h2 id='get-routing-queue'>Get Routing Queue</h2>
-<p>See the current <code>Daily</code> routing queue as existing.</p>
+<p>See the current Drivers Routing Queue as existing.</p>
+
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>driver_uid</td>
+<td>Driver Unique UID</td>
+</tr>
+</tbody></table>
 <h2 id='optimize-routes'>Optimize Routes</h2>
 <aside class="warning">Get updated Routes does not send routes to drivers and is used for querying only.</aside>
-<h2 id='deploy-optimized-routes'>Deploy Optimized Routes</h2>
-<p>Deploy updated routes to drivers.</p>
-<h2 id='deploy-optimized-route-to-driver'>Deploy Optimized Route to Driver</h2>
-<p>Deploy updated routes to specific driver.</p>
 <h1 id='inventory-api'>Inventory API</h1><h2 id='update-driver-inventory'>Update Driver Inventory.</h2><h2 id='reset-driver-inventory'>Reset Driver Inventory</h2><h2 id='reset-all-drivers-inventory'>Reset All Drivers Inventory</h2><h2 id='get-driver-inventory'>Get Driver Inventory</h2>
 <p>Get inventory for specific driver.</p>
 <h2 id='get-all-inventories'>Get All Inventories</h2>
